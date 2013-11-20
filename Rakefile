@@ -4,3 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 
 Divvyup::Application.load_tasks
+
+task :server do
+  `bundle exec rails server -p 5000`
+end
