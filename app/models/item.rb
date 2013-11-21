@@ -4,4 +4,8 @@ class Item < ActiveRecord::Base
   belongs_to :item_type
   has_many :uses
 
+  # validations
+  validates :person_id, presence: true
+  validates :item_type_id, presence: true
+
 end

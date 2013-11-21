@@ -1,0 +1,27 @@
+<%= form_for @item do |f| %>
+  <% if @item.errors.any? %>
+  <div id="errors">
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited post from being saved:</h2>
+    <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div id="fields">
+    <p>
+      <%= f.label :item_type_id, "What is it?" %>
+      <%= f.collection_select :item_type_id, @item_types, :id, :name %>
+
+      <%= f.label :person_id, "Who bought it?" %>
+      <%= f.collection_select :person_id, @people, :id, :name %>
+
+
+
+      <%= f.submit %>
+    </p>
+  </div>
+
+<% end %>

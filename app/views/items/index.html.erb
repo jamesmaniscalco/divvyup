@@ -1,0 +1,27 @@
+<h1>Items</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Date added</td>
+      <td>Measure by...</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.item_type.name %></td>
+      <td><%= item.created_at.to_formatted_s(:short_date) %></td>
+      <td><%= item.item_type.measure_by %></td>
+      <td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<p><%= link_to "Add item",  new_item_path %></p>
+
