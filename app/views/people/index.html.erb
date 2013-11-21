@@ -1,0 +1,12 @@
+<h1>People</h1>
+
+
+<table>
+  <tbody>
+    <% @people.each do |person| %>
+    <tr>
+      <td><%= person.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
