@@ -1,0 +1,23 @@
+<h1>Item Types</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Measure by...</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @item_types.each do |item_type| %>
+    <tr>
+      <td><%= item_type.name %></td>
+      <td><%= item_type.measure_by %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<p><%= link_to "Add item type",  new_item_type_path %></p>
+

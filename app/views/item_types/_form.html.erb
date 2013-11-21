@@ -1,0 +1,25 @@
+<%= form_for @item_type do |f| %>
+  <% if @item_type.errors.any? %>
+  <div id="errors">
+    <h2><%= pluralize(@item_type.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+      <% @item_type.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div id="fields">
+    <p>
+      <%= f.label :name, 'Name:' %>
+      <%= f.text_field :name %>
+
+      <%= f.label :measure_by, "Measure by..." %>
+      <%= f.select :measure_by, options_for_select(%w[weight volume unit]) %>
+
+      <%= f.submit %>
+    </p>
+  </div>
+
+<% end %>
