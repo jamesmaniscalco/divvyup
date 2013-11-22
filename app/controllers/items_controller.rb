@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    print params
     @people = Person.all
     @item_types = ItemType.all
 
