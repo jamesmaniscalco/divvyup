@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to action: 'index'
     else
-      puts @item.errors
       render 'new'
     end
     

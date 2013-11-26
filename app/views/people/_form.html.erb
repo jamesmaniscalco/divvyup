@@ -10,13 +10,14 @@
   </div>
   <% end %>
 
-  <div id="fields">
-    <p>
-      <%= f.label :name, 'Name' %>:
-      <%= f.text_field :name %>
+  <div id="fields" class="large-8 medium-7">
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name %>
 
-      <%= f.submit %>
-    </p>
+    <ul class="button-group">
+      <li><%= f.submit "add person", :class => "button" %></li>
+      <li><%= link_to "cancel", people_path, :class => "button" %></li>
+    </ul>
   </div>
 
 <% end %>

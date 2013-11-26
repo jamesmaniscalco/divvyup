@@ -13,7 +13,7 @@ class PeopleController < ApplicationController
     @person = Person.create(person_params)
 
     if @person.save
-      redirect_to @index
+      redirect_to action: 'index'
     else
       render 'new'
     end

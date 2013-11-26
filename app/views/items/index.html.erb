@@ -25,7 +25,18 @@
       <td colspan=2>finished on <%= item.finished_at.to_formatted_s(:short_date) %></td>
         <% else %>
       <td><%= link_to "use", new_use_path({:use => {:item_id => item.id}}) %></td>
-      <td><%= link_to "finish", item_finish_path(item), method: :post %></td>
+      <td>
+        <a href data-reveal-id="confirm-finish-<%= item.id %>">finish</a>
+        <div id="confirm-finish-<%= item.id %>" class="reveal-modal medium" data-reveal>
+          <h3>Finish this item?</a>
+          <p>This will make the item unavailable for use.</p>
+          <div class="row">
+            <%= link_to "finish it", item_finish_path(item), method: :post, class: "button large-4 medium-5 columns" %>
+            <a class="button large-5 large-offset-1 medium-6 columns" href>oops, don't</a>
+          </div>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
+      </td>
         <% end %>
     </tr>
     <% end %>
