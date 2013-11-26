@@ -8,6 +8,7 @@
       <td>Date added</td>
       <td>Measure by...</td>
       <td>Amount used</td>
+      <td>Comments</td>
       <td colspan=2></td>
     </tr>
   </thead>
@@ -18,7 +19,8 @@
       <td><%= item.created_at.to_formatted_s(:short_date) %></td>
       <td><%= item.item_type.measure_by %></td>
         <% amount_used = item.amount_used %>
-      <td><%= amount_used[:amount] %> <%= amount_used[:unit].pluralize(amount_used[:amount]) %>
+      <td><%= amount_used[:amount] %> <%= amount_used[:unit].pluralize(amount_used[:amount]) %></td>
+      <td><%= item.comment || "" %></td> <%# this leaves it blank if it's nil %>
         <% if item.finished %>
       <td colspan=2>finished on <%= item.finished_at.to_formatted_s(:short_date) %></td>
         <% else %>

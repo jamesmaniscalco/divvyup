@@ -10,6 +10,7 @@ class Item < ActiveRecord::Base
   # validations
   validates :person_id, presence: true
   validates :item_type_id, presence: true
+  validates :comment, length: { maximum: 100 }
 
   # scopes
   scope :available, -> { where(finished: false) }
@@ -19,6 +20,7 @@ class Item < ActiveRecord::Base
   before_save :set_default_finished_flag
   def set_default_finished_flag
     self.finished ||= false
+    true
   end
 
   # method to get how much has been used in total

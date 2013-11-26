@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to action: 'index'
     else
+      puts @item.errors
       render 'new'
     end
     
@@ -38,6 +39,6 @@ class ItemsController < ApplicationController
 
 
   def item_params
-    params.require(:item).permit(:person_id, :item_type_id, :id)
+    params.require(:item).permit(:person_id, :item_type_id, :id, :comment)
   end
 end

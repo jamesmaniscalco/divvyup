@@ -18,7 +18,8 @@
       <%= f.label :person_id, "Who bought it?" %>
       <%= f.collection_select :person_id, @people, :id, :name %>
 
-
+      <%= f.label :comment, "Comments (optional)" %>
+      <%= f.text_field :comment %>
 
       <%= f.submit %>
     </p>
