@@ -8,6 +8,7 @@
       <td>Date added</td>
       <td>Measure by...</td>
       <td></td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +17,12 @@
       <td><%= item.item_type.name %></td>
       <td><%= item.created_at.to_formatted_s(:short_date) %></td>
       <td><%= item.item_type.measure_by %></td>
+        <% if item.finished %>
+      <td colspan=2>finished on <%= item.finished_at.to_formatted_s(:short_date) %></td>
+        <% else %>
       <td><%= link_to "use this", new_use_path({:use => {:item_id => item.id}}) %></td>
+      <td><%= link_to "mark as finished", item_finish_path(item), method: :post %></td>
+        <% end %>
     </tr>
     <% end %>
   </tbody>

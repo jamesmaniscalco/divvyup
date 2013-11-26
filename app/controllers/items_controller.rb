@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.all
+    @items = Item.order(finished: :asc, created_at: :desc)
   end
 
   def new
@@ -24,9 +24,20 @@ class ItemsController < ApplicationController
     
   end
 
+  def finish
+    @item = Item.find(params[:item_id])
+    @item.finished = true
+    @item.finished_at = DateTime.now
+
+    unless @item.save
+      flash[:error] = "item could not be finished"
+    end
+
+    redirect_to action: 'index'
+  end
 
 
   def item_params
-    params.require(:item).permit(:person_id, :item_type_id)
+    params.require(:item).permit(:person_id, :item_type_id, :id)
   end
 end

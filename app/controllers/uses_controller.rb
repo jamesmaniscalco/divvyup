@@ -17,7 +17,7 @@ class UsesController < ApplicationController
     puts @use.unit
 
     if @use.save
-      redirect_to action: 'index'
+      redirect_to items_url
     else
       render 'new'
     end
