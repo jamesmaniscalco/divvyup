@@ -7,8 +7,8 @@
       <td>Name</td>
       <td>Date added</td>
       <td>Measure by...</td>
-      <td></td>
-      <td></td>
+      <td>Amount used</td>
+      <td colspan=2></td>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +17,8 @@
       <td><%= item.item_type.name %></td>
       <td><%= item.created_at.to_formatted_s(:short_date) %></td>
       <td><%= item.item_type.measure_by %></td>
+        <% amount_used = item.amount_used %>
+      <td><%= amount_used[:amount] %> <%= amount_used[:unit].pluralize(amount_used[:amount]) %>
         <% if item.finished %>
       <td colspan=2>finished on <%= item.finished_at.to_formatted_s(:short_date) %></td>
         <% else %>

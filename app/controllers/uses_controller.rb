@@ -2,7 +2,7 @@ class UsesController < ApplicationController
 
 
   def index
-    @uses = Use.all
+    @uses = Use.order(created_at: :desc)
   end
 
   def new
@@ -13,8 +13,6 @@ class UsesController < ApplicationController
   def create
     @use = Use.create(use_params)
     new_or_create_init
-    puts @units
-    puts @use.unit
 
     if @use.save
       redirect_to items_url
@@ -36,7 +34,7 @@ class UsesController < ApplicationController
 
   def new_or_create_init
     @people = Person.all
-    @items = Item.all
+    @items = Item.available
     if defined?(@use.item) && @use.item != nil
       @units = unit_choices(@use.item.item_type.measure_by)
     else
