@@ -10,30 +10,35 @@
   </div>
   <% end %>
 
-  <div id="form_message">
-    <h2>Using: <%= @use.item.item_type.name %></h2>
-  </div>
 
-  <div id="fields">
-    <p>
-      <%= f.label :person_id, "Who are you?" %>
-      <%= f.collection_select :person_id, @people, :id, :name %>
+  <div id="fields" class="large-8 medium-7">
+    <%= f.label :person_id, "Who are you?" %>
+    <%= f.collection_select :person_id, @people, :id, :name %>
 
-      <%# with a dropdown, now replaced with a hidden field %>
-      <%#= f.label :item_id, "What is it?" %>
-      <%#= f.select :item_id, options_for_select(@items.collect{ |item| [item.item_type.name, item.id] }, params[:use][:item_id]) %>
-      
-      <%= f.hidden_field :item_id %>
+    <%# with a dropdown, now replaced with a hidden field %>
+    <%#= f.label :item_id, "What is it?" %>
+    <%#= f.select :item_id, options_for_select(@items.collect{ |item| [item.item_type.name, item.id] }, params[:use][:item_id]) %>
+    
+    <%= f.hidden_field :item_id %>
 
-      <%= f.label :amount, "How much?" %>
-      <%= f.number_field :amount %>
+    <%= f.label :amount, "How much are you using?" %>
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.number_field :amount %>
+      </div>
 
-      <% units_array = @units.map { |unit| [unit + "(s)", unit] } %>
-      <%= f.select :unit, units_array %>
+      <div class="small-6 columns">
+        <% units_array = @units.map { |unit| [unit + "(s)", unit] } %>
+        <%= f.select :unit, units_array %>
+      </div>
 
+    </div>
 
-      <%= f.submit "Use this" %>
-    </p>
+    <ul class="button-group">
+      <li><%= f.submit "use this", :class => "button" %></li>
+      <li><%= link_to "cancel", items_path, :class => "button" %></li>
+    </ul>
+
   </div>
 
 <% end %>
