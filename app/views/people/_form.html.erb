@@ -14,10 +14,8 @@
     <%= f.label :name, 'Name' %>
     <%= f.text_field :name %>
 
-    <ul class="button-group">
-      <li><%= f.submit "add person", :class => "button" %></li>
-      <li><%= link_to "cancel", people_path, :class => "button" %></li>
-    </ul>
+    <%= f.submit "add person", :class => "button" %>
+    <%= link_to "cancel", people_path, :class => "button" %>
   </div>
 
 <% end %>

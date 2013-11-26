@@ -10,16 +10,16 @@
   </div>
   <% end %>
 
-  <div id="fields">
-    <p>
-      <%= f.label :name, 'Name:' %>
-      <%= f.text_field :name %>
+  <div id="fields" class="large-8 medium-7">
+    <%= f.label :name, 'Name:' %>
+    <%= f.text_field :name %>
 
-      <%= f.label :measure_by, "Measure by..." %>
-      <%= f.select :measure_by, options_for_select(%w[weight volume unit]) %>
+    <%= f.label :measure_by, "Measure by..." %>
+    <%= f.select :measure_by, options_for_select(%w[weight volume unit]) %>
 
-      <%= f.submit %>
-    </p>
+    <%= f.submit "add this", :class => "button" %>
+    <%= link_to "cancel", items_path, :class => "button" %>
+
   </div>
 
 <% end %>

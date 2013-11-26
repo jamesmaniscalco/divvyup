@@ -24,7 +24,7 @@
     <%= f.label :amount, "How much are you using?" %>
     <div class="row">
       <div class="small-6 columns">
-        <%= f.number_field :amount %>
+        <%= f.number_field :amount, step: "any", min: "0" %>
       </div>
 
       <div class="small-6 columns">
@@ -34,10 +34,8 @@
 
     </div>
 
-    <ul class="button-group">
-      <li><%= f.submit "use this", :class => "button" %></li>
-      <li><%= link_to "cancel", items_path, :class => "button" %></li>
-    </ul>
+    <%= f.submit "use this", :class => "button" %>
+    <%= link_to "cancel", items_path, :class => "button" %>
 
   </div>
 
