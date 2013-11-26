@@ -10,19 +10,20 @@
   </div>
   <% end %>
 
-  <div id="fields">
-    <p>
-      <%= f.label :item_type_id, "What is it?" %>
-      <%= f.collection_select :item_type_id, @item_types, :id, :name %>
+  <div id="fields" class="large-8 medium-7">
+    <%= f.label :item_type_id, "What is it?" %>
+    <%= f.collection_select :item_type_id, @item_types, :id, :name %>
 
-      <%= f.label :person_id, "Who bought it?" %>
-      <%= f.collection_select :person_id, @people, :id, :name %>
+    <%= f.label :person_id, "Who bought it?" %>
+    <%= f.collection_select :person_id, @people, :id, :name %>
 
-      <%= f.label :comment, "Comments (optional)" %>
-      <%= f.text_field :comment %>
+    <%= f.label :comment, "Comments (optional)" %>
+    <%= f.text_field :comment %>
 
-      <%= f.submit %>
-    </p>
+    <ul class="button-group">
+      <li><%= f.submit "create this", :class => "button" %></li>
+      <li><%= link_to "cancel", items_path, :class => "button" %></li>
+    </ul>
   </div>
 
 <% end %>

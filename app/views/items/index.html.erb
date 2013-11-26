@@ -24,8 +24,8 @@
         <% if item.finished %>
       <td colspan=2>finished on <%= item.finished_at.to_formatted_s(:short_date) %></td>
         <% else %>
-      <td><%= link_to "use this", new_use_path({:use => {:item_id => item.id}}) %></td>
-      <td><%= link_to "mark as finished", item_finish_path(item), method: :post %></td>
+      <td><%= link_to "use", new_use_path({:use => {:item_id => item.id}}) %></td>
+      <td><%= link_to "finish", item_finish_path(item), method: :post %></td>
         <% end %>
     </tr>
     <% end %>
@@ -33,5 +33,5 @@
 </table>
 
 
-<p><%= link_to "Add item",  new_item_path %></p>
+<%= link_to "add item", new_item_path, :class => "button" %>
 

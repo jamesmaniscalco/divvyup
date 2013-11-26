@@ -13,3 +13,7 @@
 
  *= require_tree .
  */
+
+.top-spacer {
+  height: 50px;
+}
