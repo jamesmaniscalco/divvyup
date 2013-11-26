@@ -1,0 +1,25 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">divvyup</a></h1>
+    </li>
+
+    <li class="toggle-topbar menu-icon">
+      <a href>menu</a>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <li><a href="<%= items_path %>">items</a></li>
+      <li><a href="<%= people_path %>">people</a></li>
+      <li><a href="<%= uses_path %>">usage history</a></li>
+      <li class="has-dropdown">
+        <a href>settings</a>
+        <ul class="dropdown">
+          <li><a href="<%= item_types_path %>">item type admin</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
