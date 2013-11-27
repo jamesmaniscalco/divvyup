@@ -1,9 +1,11 @@
 <h1><%= @item.item_type.name %></h1>
 
 
-<h3 class="subheader"><%= @item.comment %></h3>
+<h5><em><%= @item.comment %></em></h5>
 
 <p>Purchased on <strong><%= @item.created_at.to_date.to_formatted_s(:long_ordinal) %></strong> by <strong><%= @item.person.name %></strong></p>
 
+
+<h4>Usage history</h4>
 
 <%= render 'uses/table', :uses => @item.uses, :item_page => true %>

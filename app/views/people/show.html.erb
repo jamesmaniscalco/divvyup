@@ -1,6 +1,11 @@
 <h1><%= @person.name %></h1>
 
 
-<h3>Usage history</h3>
+<h4>Usage history</h4>
 
 <%= render 'uses/table', :uses => @person.uses, :person_page => true %>
+
+
+<h4>Purchases</h4>
+
+<%= render 'items/table', :items => @person.items %>
