@@ -1,0 +1,4 @@
+<h1><%= @item.item_type.name %></h1>
+
+
+<p>Purchased <strong><%= @item.created_at.to_date.to_formatted_s(:long_ordinal) %></strong> by <strong><%= @item.person.name %></strong></p>

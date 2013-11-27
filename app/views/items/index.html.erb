@@ -15,7 +15,7 @@
   <tbody>
     <% @items.each do |item| %>
     <tr>
-      <td><%= item.item_type.name %></td>
+      <td><%= link_to item.item_type.name, item_path(item) %></td>
       <td><%= item.created_at.to_formatted_s(:short_date) %></td>
       <td><%= item.item_type.measure_by %></td>
         <% amount_used = item.amount_used %>
