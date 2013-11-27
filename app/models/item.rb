@@ -13,6 +13,7 @@ class Item < ActiveRecord::Base
   validates :comment, length: { maximum: 100 }
 
   # scopes
+  default_scope order(finished: :asc, created_at: :desc)
   scope :available, -> { where(finished: false) }
   scope :finished, -> { where(finished: true) }
 

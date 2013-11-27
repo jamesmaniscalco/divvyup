@@ -6,4 +6,7 @@ class ItemType < ActiveRecord::Base
   validates :measure_by, inclusion: %w(volume weight unit)
   validates :name, length: { minimum: 1 }
 
+  # scopes
+  default_scope order(name: :asc)
+
 end
