@@ -1,0 +1,6 @@
+<h1><%= @person.name %></h1>
+
+
+<h3>Usage history</h3>
+
+<%= render 'uses/table', :uses => @person.uses, :person_page => true %>

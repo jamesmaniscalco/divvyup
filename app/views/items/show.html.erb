@@ -6,4 +6,4 @@
 <p>Purchased on <strong><%= @item.created_at.to_date.to_formatted_s(:long_ordinal) %></strong> by <strong><%= @item.person.name %></strong></p>
 
 
-<%= render 'uses/table', :uses => @item.uses %>
+<%= render 'uses/table', :uses => @item.uses, :item_page => true %>

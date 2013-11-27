@@ -17,7 +17,10 @@ class PeopleController < ApplicationController
     else
       render 'new'
     end
-    
+  end
+  
+  def show
+    @person = Person.find(params[:id])
   end
 
 
