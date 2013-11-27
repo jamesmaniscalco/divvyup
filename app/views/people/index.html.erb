@@ -10,8 +10,11 @@
   <tbody>
     <% @people.each do |person| %>
     <tr>
-      <td><%= person.name %></td>
+      <td><%= link_to person.name, person_path(person) %></td>
     </tr>
+    <% end %>
+    <% if @people.length == 0 %>
+      <tr><td colspan=1>No people (yet!)</td></tr>
     <% end %>
   </tbody>
 </table>

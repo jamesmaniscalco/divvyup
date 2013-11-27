@@ -21,11 +21,20 @@
         <td><%= link_to use.item.item_type.name, item_path(use.item) %></td>
       <% end %>
       <% unless person_page %>
-        <td><%= use.person.name %></td>
+        <td><%= link_to use.person.name, person_path(use.person) %></td>
       <% end %>
       <td><%= use.amount %> <%= use.unit.pluralize(use.amount) %></td>
       <td><%= use.created_at.to_formatted_s(:short_date) %></td>
     </tr>
+    <% end %>
+    <% if uses.length == 0 %>
+      <% if item_page or person_page %>
+        <% empty_row_cols = 3 %>
+      <% else %>
+        <% empty_row_cols = 4 %>
+      <% end %>
+
+      <tr><td colspan=<%= empty_row_cols %>>No items</td></tr>
     <% end %>
   </tbody>
 </table>

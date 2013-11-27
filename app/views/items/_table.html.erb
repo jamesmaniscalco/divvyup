@@ -37,5 +37,8 @@
         <% end %>
     </tr>
     <% end %>
+    <% if items.length == 0 %>
+      <tr><td colspan=7>No items</td></tr>
+    <% end %>
   </tbody>
 </table>
