@@ -1,0 +1,21 @@
+
+<table>
+  <thead>
+    <tr>
+      <td>Item used</td>
+      <td>By who?</td>
+      <td>How much?</td>
+      <td>When?</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% uses.each do |use| %>
+    <tr>
+      <td><%= use.item.item_type.name %></td>
+      <td><%= use.person.name %></td>
+      <td><%= use.amount %> <%= use.unit.pluralize(use.amount) %></td>
+      <td><%= use.created_at.to_formatted_s(:short_date) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
