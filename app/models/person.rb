@@ -54,4 +54,21 @@ class Person < ActiveRecord::Base
 
     return [total_used_from_purchases, unit]
   end
+
+  # ok, put them together to get the share ratio.  like on bittorrent!
+  def share_ratio(item_type)
+    amount_bought = amount_of_item_type_bought(item_type)[0]
+    amount_used = amount_of_item_type_used(item_type)[0]
+
+    # check that our calculations make sense
+    if amount_used > 0
+      # if the amounts bought and used are positive, we have a nice fraction.
+      ratio = amount_bought / amount_used
+    else
+      # if the amount used is zero, then the ratio is infinite
+      ratio = 'infinity'
+    end
+
+    return ratio
+  end
 end

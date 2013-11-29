@@ -17,3 +17,11 @@
 .top-spacer {
   height: 50px;
 }
+
+.low-ratio {
+  color: #f00;
+}
+
+.high-ratio {
+  color: #00bb45;
+}

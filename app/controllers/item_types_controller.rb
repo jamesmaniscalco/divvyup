@@ -21,6 +21,7 @@ class ItemTypesController < ApplicationController
 
   def show
     @item_type = ItemType.find(params[:id])
+    @people = Person.all
   end
 
 

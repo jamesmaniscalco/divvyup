@@ -1,6 +1,8 @@
 <h1><%= @item_type.name %></h1>
 
 
+<h4>Sharing statistics</h4>
+<%= render 'share_ratio_table', :item_type => @item_type, :people => @people %>
 
 
 <div id="charts" class="row">
