@@ -35,6 +35,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    d3_rails (3.3.10)
+      railties (>= 3.1.0)
     erubis (2.7.0)
     execjs (2.0.2)
     foundation-rails (5.0.2.0)
@@ -56,6 +58,10 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
+    pluggable_js (0.0.6)
+      coffee-rails
+      jquery-rails
+      rails (>= 3.1)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -118,9 +124,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  d3_rails
   foundation-rails
   jbuilder (~> 1.2)
   jquery-rails
+  pluggable_js
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc

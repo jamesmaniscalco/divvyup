@@ -21,6 +21,12 @@ gem 'coffee-rails', '~> 4.0.0'
 # Let's use Foundation for pretty things
 gem 'foundation-rails'
 
+# and D3 for nice graphs
+gem 'd3_rails'
+
+# view-specific javascripts
+gem 'pluggable_js'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 

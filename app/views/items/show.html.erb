@@ -1,9 +1,17 @@
 <h1><%= @item.item_type.name %></h1>
 
 
+
 <h5><em><%= @item.comment %></em></h5>
 
 <p>Purchased on <strong><%= @item.created_at.to_date.to_formatted_s(:long_ordinal) %></strong> by <strong><%= @item.person.name %></strong></p>
+
+<div id="charts" class="row">
+  <div class="small-10 small-offset-1 medium-5 medium-offset-0 columns">
+    <div id="item-pie">
+    </div>
+  </div>
+</div>
 
 
 <h4>Usage history</h4>
