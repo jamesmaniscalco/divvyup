@@ -1,8 +1,13 @@
+<% person_page ||= false %>
+
 <table>
   <thead>
     <tr>
       <td>Name</td>
       <td>Date added</td>
+      <% unless person_page %>
+      <td>Purchased by</td>
+      <% end %>
       <td>Measure by...</td>
       <td>Amount used</td>
       <td>Comments</td>
@@ -14,6 +19,9 @@
     <tr>
       <td><%= link_to item.item_type.name, item_path(item) %></td>
       <td><%= item.created_at.to_formatted_s(:short_date) %></td>
+      <% unless person_page %>
+      <td><%= link_to item.person.name, person_path(item.person) %></td>
+      <% end %>
       <td><%= item.item_type.measure_by %></td>
         <% amount_used = item.amount_used %>
       <td><%= amount_used[:amount] %> <%= amount_used[:unit].pluralize(amount_used[:amount]) %></td>

@@ -11,7 +11,7 @@
   <tbody>
     <% @item_types.each do |item_type| %>
     <tr>
-      <td><%= item_type.name %></td>
+      <td><%= link_to item_type.name, item_type_path(item_type) %></td>
       <td><%= item_type.measure_by %></td>
     </tr>
     <% end %>

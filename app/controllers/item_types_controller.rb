@@ -17,9 +17,11 @@ class ItemTypesController < ApplicationController
     else
       render 'new'
     end
-    
   end
 
+  def show
+    @item_type = ItemType.find(params[:id])
+  end
 
 
   def item_type_params

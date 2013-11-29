@@ -1,0 +1,22 @@
+<h1><%= @item_type.name %></h1>
+
+
+
+
+
+<div id="charts" class="row">
+  <div class="small-12 medium-6 columns">
+    <h4>Usage by person (all time)</h4>
+    <div id="usage-pie" class="small-10 small-offset-1 medium-10 medium-offset-0">
+    </div>
+  </div>
+</div>
+
+
+
+<h4>Purchase history</h4>
+<%= render 'items/table', :items => @item_type.items, :item_type_page => true %>
+
+
+<script>
+</script>
