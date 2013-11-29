@@ -4,7 +4,7 @@
 
 <h5><em><%= @item.comment %></em></h5>
 
-<p>Purchased on <strong><%= @item.created_at.to_date.to_formatted_s(:long_ordinal) %></strong> by <strong><%= @item.person.name %></strong></p>
+<p>Purchased on <strong><%= @item.created_at.to_date.to_formatted_s(:long_ordinal) %></strong> by <strong><%= link_to @item.person.name, person_path(@item.person) %></strong></p>
 
 <% amount_used = @item.amount_used %>
 <% if @item.finished %>
