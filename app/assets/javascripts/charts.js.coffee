@@ -5,7 +5,7 @@ Charts.pieChart = (data, divTitle, amountField, labelField) ->
   height = width
   radius = Math.round(width / 2)
 
-  color = d3.scale.category20c()
+  color = d3.scale.category20()
   vis = d3.select("#" + divTitle).append("svg:svg").data([data]).attr("width", width).attr("height", height).attr("viewBox", "0 0 " + (width+1) + " " + (height+1)).attr("preserveAspectRatio", "xMinYMid").append("svg:g").attr("transform", "translate(" + radius + " " + radius + ")")
   arc = d3.svg.arc().outerRadius(radius)
   pie = d3.layout.pie().value((d) ->

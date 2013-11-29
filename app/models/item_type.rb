@@ -18,9 +18,11 @@ class ItemType < ActiveRecord::Base
     usage = []
     Person.all.each do |person|
       used, unit = person.amount_of_item_type_used(self)
-      used = number_with_precision(used, precision: 1)
-      entry = {'person_name' => person.name, 'amount_used' => used, 'unit' => unit}
-      usage.append(entry)
+      if used > 0
+        used = number_with_precision(used, precision: 1)
+        entry = {'person_name' => person.name, 'amount_used' => used, 'unit' => unit}
+        usage.append(entry)
+      end
     end
 
     # give a nice value if nothing was used yet
