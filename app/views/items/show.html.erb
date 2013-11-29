@@ -6,6 +6,16 @@
 
 <p>Purchased on <strong><%= @item.created_at.to_date.to_formatted_s(:long_ordinal) %></strong> by <strong><%= @item.person.name %></strong></p>
 
+<% amount_used = @item.amount_used %>
+<% if @item.finished %>
+  <p>Finished on <strong><%= @item.finished_at.to_date.to_formatted_s(:long_ordinal) %></strong></p>
+  <p><strong><%= amount_used[:amount] %> <%= amount_used[:unit].pluralize(amount_used[:amount]) %></strong> used</p>
+<% else %>
+  <p><strong><%= amount_used[:amount] %> <%= amount_used[:unit].pluralize(amount_used[:amount]) %></strong> used so far</p>
+<% end %>
+
+
+
 <div id="charts" class="row">
   <div class="small-12 medium-6 columns">
     <h4>Usage by person</h4>
