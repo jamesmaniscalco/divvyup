@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <td>Item</td>
+      <td>Amount purchased</td>
+      <td>Amount used</td>
+      <td>Share ratio</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% item_types.each do |item_type| %>
+      <% purchased = person.amount_of_item_type_bought(item_type) %>
+      <% used = person.amount_of_item_type_used(item_type) %>
+      <% ratio = person.share_ratio(item_type) %>
+    <tr>
+      <td><%= link_to item_type.name, item_type_path(item_type) %></td>
+      <td><%= number_with_precision(purchased[0], precision: 1) %> <%= purchased[1].pluralize(purchased[0]) %></td>
+      <td><%= number_with_precision(used[0], precision: 1) %> <%= used[1].pluralize(used[0]) %></td>
+      <td class=<%= share_ratio_class(ratio) %>><%= share_ratio_formatted(ratio) %></td>
+    </tr>
+    <% end %>
+    <% if item_types.length == 0 %>
+      <tr><td colspan=1>No share ratios</td></tr>
+    <% end %>
+  </tbody>
+</table>

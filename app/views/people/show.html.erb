@@ -1,6 +1,10 @@
 <h1><%= @person.name %></h1>
 
 
+<h4>Sharing statistics</h4>
+<%= render 'share_ratio_table', :item_types => @item_types, :person => @person %>
+
+
 <h4>Usage history</h4>
 
 <%= render 'uses/table', :uses => @person.uses, :person_page => true %>
