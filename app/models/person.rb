@@ -71,4 +71,15 @@ class Person < ActiveRecord::Base
 
     return ratio
   end
+
+  # algorithm to determine someone's 'buyer score' for a particular item type.  A higher score means you're more likely to have to buy it.
+  def buyer_score(item_type)
+    ratio = share_ratio(item_type)
+    share_delta = amount_of_item_type_used(item_type)[0] - amount_of_item_type_bought(item_type)[0]
+    if ratio == 'infinity' or ratio > 1
+      score = 0
+    else
+      score = share_delta ** 1.5 / (ratio + 0.01)
+    end
+  end
 end

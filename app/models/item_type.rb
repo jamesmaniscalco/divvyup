@@ -47,4 +47,13 @@ class ItemType < ActiveRecord::Base
     return supplied
   end
 
+  # and find out who should buy the next one!
+  def next_buyer
+    users = {}
+    Person.all.each do |person|
+      users[person.id] = person.buyer_score(self)
+    end
+
+    buyer = Person.find(users.sort_by{ |id, score| score }.last[0])
+  end
 end

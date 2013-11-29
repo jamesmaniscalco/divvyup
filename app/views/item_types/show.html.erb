@@ -2,6 +2,8 @@
 
 
 <h4>Sharing statistics</h4>
+<% buyer = @item_type.next_buyer %>
+<h5><%= link_to buyer.name, person_path(buyer) %> should buy this next</h5>
 <%= render 'share_ratio_table', :item_type => @item_type, :people => @people %>
 
 
