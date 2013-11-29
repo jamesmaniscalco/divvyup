@@ -3,11 +3,15 @@
 
 
 
-
 <div id="charts" class="row">
   <div class="small-12 medium-6 columns">
-    <h4>Usage by person (all time)</h4>
+    <h4>Usage (all time)</h4>
     <div id="usage-pie" class="small-10 small-offset-1 medium-10 medium-offset-0">
+    </div>
+  </div>
+  <div class="small-12 medium-6 columns">
+    <h4>Purchases (all time)</h4>
+    <div id="purchase-pie" class="small-10 small-offset-1 medium-10 medium-offset-0">
     </div>
   </div>
 </div>
@@ -19,4 +23,6 @@
 
 
 <script>
+  var usage_data = <%=j @item_type.usage_stats.to_json.html_safe %>
+  var purchase_data = <%=j @item_type.purchase_stats.to_json.html_safe %>
 </script>

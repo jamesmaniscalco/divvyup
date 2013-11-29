@@ -1,4 +1,7 @@
 class ItemType < ActiveRecord::Base
+  include SharedMethods
+  include ActionView::Helpers::NumberHelper
+
   # relations
   has_many :items
 
@@ -8,5 +11,40 @@ class ItemType < ActiveRecord::Base
 
   # scopes
   default_scope order(name: :asc)
+
+  # compile some statistics on usage (for the pie charts)
+  def usage_stats
+    # cycle through all people to see how much they used
+    usage = []
+    Person.all.each do |person|
+      used, unit = person.amount_of_item_type_used(self)
+      used = number_with_precision(used, precision: 1)
+      entry = {'person_name' => person.name, 'amount_used' => used, 'unit' => unit}
+      usage.append(entry)
+    end
+
+    # give a nice value if nothing was used yet
+    if usage.length == 0
+      usage = [{'person_name' => 'not used yet', 'amount_used' => 0, 'unit' => unit}]
+    end
+
+    return usage
+  end
+
+  # get the stats on purchase history too
+  def purchase_stats
+    # cycle through all people to see how much they bought
+    supplied = []
+    Person.all.each do |person|
+      supply, unit = person.amount_of_item_type_bought(self)
+      if supply > 0
+        supply = number_with_precision(supply, precision: 1)
+        entry = {'person_name' => person.name, 'amount_purchased' => supply, 'unit' => unit}
+        supplied.append(entry)
+      end
+    end
+
+    return supplied
+  end
 
 end
