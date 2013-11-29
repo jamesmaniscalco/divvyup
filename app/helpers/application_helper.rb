@@ -1,11 +1,15 @@
 module ApplicationHelper
   def share_ratio_class(ratio)
-    if ratio > 1.25
-      return "high-ratio"
-    elsif ratio < 0.66
-      return "low-ratio"
+    if ratio != 'infinity'
+      if ratio > 1.25
+        return "high-ratio"
+      elsif ratio < 0.66
+        return "low-ratio"
+      else
+        return ""
+      end
     else
-      return ""
+      return "high-ratio"
     end
   end
 
