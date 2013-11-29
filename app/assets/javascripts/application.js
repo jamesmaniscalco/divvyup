@@ -19,12 +19,3 @@
 
 $(function(){ $(document).foundation(); });
 
-$(window).on("resize", ->
-    chart = $("svg")
-    aspect = chart.width() / chart.height()
-    container = chart.parent()
-
-    targetWidth = container.width()
-    chart.attr("width", targetWidth)
-    chart.attr("height", Math.round(targetWidth / aspect))
-  ).trigger("resize")

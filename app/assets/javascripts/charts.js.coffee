@@ -24,3 +24,14 @@ Charts.pieChart = (data, divTitle, amountField, labelField) ->
   ).attr("font-size", Math.round(width / 15) + "px"
   ).attr("text-anchor", "middle").text (d, i) ->
     data[i][labelField]
+    
+Charts.resize = () ->
+  $(window).on("resize", ->
+      chart = $("svg")
+      aspect = chart.width() / chart.height()
+      container = chart.parent()
+  
+      targetWidth = container.width()
+      chart.attr("width", targetWidth)
+      chart.attr("height", Math.round(targetWidth / aspect))
+    ).trigger("resize")

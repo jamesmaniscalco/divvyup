@@ -5,4 +5,5 @@
 window.Item ||= {};
 
 Item.show = () ->
-  Charts.pieChart(usage_data, "usage-pie", "amount_used", "person_name");
+  Charts.pieChart(usage_data, "usage-pie", "amount_used", "person_name")
+  Charts.resize()
