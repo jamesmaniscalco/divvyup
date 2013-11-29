@@ -7,8 +7,9 @@
 <p>Purchased on <strong><%= @item.created_at.to_date.to_formatted_s(:long_ordinal) %></strong> by <strong><%= @item.person.name %></strong></p>
 
 <div id="charts" class="row">
-  <div class="small-10 small-offset-1 medium-5 medium-offset-0 columns">
-    <div id="item-pie">
+  <div class="small-12 medium-6 columns">
+    <h4>Usage by person</h4>
+    <div id="item-pie" class="small-10 small-offset-1 medium-10 medium-offset-0">
     </div>
   </div>
 </div>
@@ -17,3 +18,8 @@
 <h4>Usage history</h4>
 
 <%= render 'uses/table', :uses => @item.uses, :item_page => true %>
+
+
+<script>
+  var data = <%=j @item.usage_stats.to_json.html_safe %>
+</script>
