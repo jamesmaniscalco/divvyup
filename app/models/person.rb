@@ -64,7 +64,7 @@ class Person < ActiveRecord::Base
     if amount_used > 0
       # if the amounts bought and used are positive, we have a nice fraction.
       ratio = amount_bought / amount_used
-    elsif amount_used = 0 and amount_bought = 0
+    elsif amount_used == 0 and amount_bought == 0
       ratio = 1
     else
       # if the amount used is zero, then the ratio is infinite

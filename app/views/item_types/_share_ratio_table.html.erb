@@ -14,8 +14,8 @@
       <% ratio = person.share_ratio(item_type) %>
     <tr>
       <td><%= link_to person.name, person_path(person) %></td>
-      <td><%= purchased[0] %> <%= purchased[1].pluralize(purchased[0]) %></td>
-      <td><%= used[0] %> <%= used[1].pluralize(used[0]) %></td>
+      <td><%= number_with_precision(purchased[0], precision: 1) %> <%= purchased[1].pluralize(purchased[0]) %></td>
+      <td><%= number_with_precision(used[0], precision: 1) %> <%= used[1].pluralize(used[0]) %></td>
       <td class=<%= share_ratio_class(ratio) %>><%= share_ratio_formatted(ratio) %></td>
     </tr>
     <% end %>
