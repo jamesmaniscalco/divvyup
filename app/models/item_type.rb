@@ -10,7 +10,7 @@ class ItemType < ActiveRecord::Base
   validates :name, length: { minimum: 1 }
 
   # scopes
-  default_scope order(name: :asc)
+  default_scope { order(name: :asc) }
 
   # compile some statistics on usage (for the pie charts)
   def usage_stats

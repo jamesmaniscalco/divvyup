@@ -10,7 +10,7 @@ class Use < ActiveRecord::Base
   validates :unit, is_unit_type: true
 
   # scopes
-  default_scope order(created_at: :desc)
+  default_scope { order(created_at: :desc) }
 
   # method to report usage amount in base unit (gram, milliliter, unit)
   def amount_used

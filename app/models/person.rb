@@ -9,7 +9,7 @@ class Person < ActiveRecord::Base
   has_many :items
 
   # scopes
-  default_scope order(name: :asc)
+  default_scope { order(name: :asc) }
 
   # get the amount used for a particular item
   def amount_of_item_used(item)
