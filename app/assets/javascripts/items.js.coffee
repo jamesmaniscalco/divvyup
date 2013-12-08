@@ -2,8 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-window.Item ||= {};
+window.items ||= {};
 
-Item.show = () ->
+items.show = () ->
   Charts.pieChart(usage_data, "usage-pie", "amount_used", "person_name")
   Charts.resize()
