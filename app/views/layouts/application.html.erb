@@ -20,6 +20,9 @@
 
     <div class="row">
       <div id="content" class="large-10 large-offset-2 medium-11 medium-offset-1 columns">
+        <%= yield :page_heading %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <%= yield %>
       </div> <!-- /content -->
     </div> <!-- /main row -->
