@@ -6,6 +6,12 @@ class Group < ActiveRecord::Base
 
   attr_accessor :login  # so we can log in with either email or group name
 
+  # relations
+  has_many :items
+  has_many :item_types
+  has_many :people
+  has_many :uses
+
   # validations
   validates :group_name, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
 

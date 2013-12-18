@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217144831) do
+ActiveRecord::Schema.define(version: 20131218222336) do
 
   create_table "groups", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20131217144831) do
     t.string   "measure_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
 
   create_table "items", force: true do |t|
@@ -47,12 +48,14 @@ ActiveRecord::Schema.define(version: 20131217144831) do
     t.boolean  "finished"
     t.datetime "finished_at"
     t.text     "comment"
+    t.integer  "group_id"
   end
 
   create_table "people", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
 
   create_table "uses", force: true do |t|
@@ -62,6 +65,7 @@ ActiveRecord::Schema.define(version: 20131217144831) do
     t.float    "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
 
 end

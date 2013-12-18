@@ -5,6 +5,7 @@ class Person < ActiveRecord::Base
   validates :name, length: { minimum: 1 }
 
   # relations
+  belongs_to :group
   has_many :uses
   has_many :items
 

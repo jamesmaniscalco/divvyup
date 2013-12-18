@@ -5,6 +5,7 @@ class Item < ActiveRecord::Base
   # relations
   belongs_to :person
   belongs_to :item_type
+  belongs_to :group
   has_many :uses
 
   # validations

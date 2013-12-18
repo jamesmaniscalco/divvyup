@@ -3,6 +3,7 @@ class ItemType < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
 
   # relations
+  belongs_to :group
   has_many :items
 
   # validations

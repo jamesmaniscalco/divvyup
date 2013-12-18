@@ -4,6 +4,7 @@ class Use < ActiveRecord::Base
   # relations
   belongs_to :person
   belongs_to :item
+  belongs_to :group
 
   # validations
   validates_numericality_of :amount, :greater_than => 0
