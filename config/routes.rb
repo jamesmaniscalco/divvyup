@@ -1,5 +1,6 @@
 Divvyup::Application.routes.draw do
 
+  devise_for :groups
   resources :people
   
   resources :item_types
