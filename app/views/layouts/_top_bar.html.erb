@@ -11,11 +11,11 @@
 
   <section class="top-bar-section">
     <ul class="right">
-      <li><%= link_to "items", items_path %></li>
-      <li><%= link_to "item stats", item_types_path %></li>
-      <li><%= link_to "people", people_path %></li>
-      <li><%= link_to "usage history", uses_path %></li>
       <% if group_signed_in? %>
+        <li><%= link_to "items", items_path %></li>
+        <li><%= link_to "item stats", item_types_path %></li>
+        <li><%= link_to "people", people_path %></li>
+        <li><%= link_to "usage history", uses_path %></li>
         <li><%= link_to "edit account", edit_group_registration_path %></li>
         <li><%= link_to "sign out", destroy_group_session_path, method: :delete %></li>
       <% else %>
