@@ -2,7 +2,7 @@
 
   <div id="fields" class="large-8 medium-7">
     <%= f.label :login %>
-    <%= f.text_field :login, :autofocus => true %>
+    <%= f.text_field :login, :autofocus => true, :placeholder => "group name or email address" %>
 
     <%= f.label :password %>
     <%= f.password_field :password %>
@@ -15,9 +15,9 @@
 
     <div>
       <%= f.submit "sign in", :class => "button" %>
-      <%= link_to "sign up", new_group_registration_path, :class => "button" %>
     </div>
-    
+
+    <p><%= link_to "sign up", new_group_registration_path %></p>
     <p><%= link_to "forgot your password?", new_password_path(resource_name) %></p>
   </div>
 <% end %>
