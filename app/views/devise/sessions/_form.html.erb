@@ -1,13 +1,23 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :login %><br />
-  <%= f.text_field :login, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div id="fields" class="large-8 medium-7">
+    <%= f.label :login %>
+    <%= f.text_field :login, :autofocus => true %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-  <div><%= f.submit "Sign in" %></div>
+    <% if devise_mapping.rememberable? -%>
+    <div>
+      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+    </div>
+    <% end -%>
+
+    <div>
+      <%= f.submit "sign in", :class => "button" %>
+      <%= link_to "sign up", new_group_registration_path, :class => "button" %>
+    </div>
+    
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+  </div>
 <% end %>
