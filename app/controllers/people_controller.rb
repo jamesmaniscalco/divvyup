@@ -1,4 +1,4 @@
-class PeopleController < ApplicationController
+class PeopleController < LoggedInController
 
   before_filter :find_person, :only => [ :show ]
   before_filter :owned_by_current_group, :only => [ :show ]

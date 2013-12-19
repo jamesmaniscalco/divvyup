@@ -1,4 +1,4 @@
-class ItemTypesController < ApplicationController
+  class ItemTypesController < LoggedInController
 
   before_filter :find_item_type, :only => [ :show ]
   before_filter :owned_by_current_group, :only => [ :show ]

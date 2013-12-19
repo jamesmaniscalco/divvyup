@@ -1,4 +1,4 @@
-class UsesController < ApplicationController
+class UsesController < LoggedInController
 
 
   def index
