@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |g| g.permit(:login, :password, :remember_me) }
   end
 
+  def permissions_error_flash
+    flash[:alert] = "whoops!  you don't have permission to do that."
+    redirect_to action: 'index'
+  end
+
 end

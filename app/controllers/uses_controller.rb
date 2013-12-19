@@ -2,7 +2,7 @@ class UsesController < ApplicationController
 
 
   def index
-    @uses = Use.order(created_at: :desc)
+    @uses = current_group.uses
   end
 
   def new
@@ -12,6 +12,7 @@ class UsesController < ApplicationController
 
   def create
     @use = Use.create(use_params)
+    @use.group = current_group
     new_or_create_init
 
     if @use.save

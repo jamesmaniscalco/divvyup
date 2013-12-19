@@ -4,20 +4,24 @@ class ItemsController < ApplicationController
   before_filter :owned_by_current_group, :only => [ :show, :finish ]
 
   def index
-    @items = current_group.items
+    if group_signed_in?
+      @items = current_group.items
+    else
+      @items = Item.none
+    end
   end
 
   def new
     @item = Item.new
-    @people = Person.all
-    @item_types = ItemType.all
+    @people = current_group.people
+    @item_types = current_group.item_types
   end
 
   def create
     @item = Item.create(item_params)
     @item.group = current_group
-    @people = Person.all
-    @item_types = ItemType.all
+    @people = current_group.people
+    @item_types = current_group.item_types
 
     if @item.save
       redirect_to action: 'index'
@@ -46,8 +50,7 @@ class ItemsController < ApplicationController
 
   def owned_by_current_group
     unless @item.group == current_group
-      flash[:alert] = "whoops!  you don't have permission to do that."
-      redirect_to action: 'index'
+      permissions_error_flash
     end
   end
 
