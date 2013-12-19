@@ -1,2 +1,10 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% content_for :page_heading do %>
+<% end %>
+
+<h3>Welcome to <strong>divvyup</strong>, the item-sharing site for roommates, friends, and families.</h3>
+
+<h3>Sign in</h3>
+
+<%= render "devise/sessions/form", :resource => resource, :resource_name => resource_name %>
+
+<p>or <%= link_to "sign up", new_group_registration_path %></p>
