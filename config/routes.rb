@@ -1,5 +1,7 @@
 Divvyup::Application.routes.draw do
 
+  get "welcome" => "welcome#index"
+
   devise_for :groups
   resources :people
   
