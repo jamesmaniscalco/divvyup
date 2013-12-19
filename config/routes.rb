@@ -1,7 +1,5 @@
 Divvyup::Application.routes.draw do
 
-  get "welcome" => "welcome#index"
-
   devise_for :groups
   resources :people
   
@@ -14,6 +12,12 @@ Divvyup::Application.routes.draw do
   resources :uses
 
   
-  root 'items#index'
+  authenticated :group do
+    root to: 'items#index', as: "authenticated_root"
+  end
+
+  unauthenticated do
+    root to: 'welcome#index', as: "unauthenticated_root"
+  end
 
 end
