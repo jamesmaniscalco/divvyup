@@ -11,6 +11,7 @@ class Item < ActiveRecord::Base
   # validations
   validates :person_id, presence: true
   validates :item_type_id, presence: true
+  validates :group_id, presence: true
   validates :comment, length: { maximum: 100 }
 
   # scopes

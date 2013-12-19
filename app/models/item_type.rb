@@ -7,6 +7,7 @@ class ItemType < ActiveRecord::Base
   has_many :items
 
   # validations
+  validates :group_id, presence: true
   validates :measure_by, inclusion: %w(volume weight unit)
   validates :name, length: { minimum: 1 }
 

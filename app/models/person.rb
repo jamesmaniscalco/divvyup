@@ -2,6 +2,7 @@ class Person < ActiveRecord::Base
   include SharedMethods
 
   # validations
+  validates :group_id, presence: true
   validates :name, length: { minimum: 1 }
 
   # relations

@@ -7,6 +7,7 @@ class Use < ActiveRecord::Base
   belongs_to :group
 
   # validations
+  validates :group_id, presence: true
   validates_numericality_of :amount, :greater_than => 0
   validates :unit, is_unit_type: true
 

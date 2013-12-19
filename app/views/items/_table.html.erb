@@ -33,7 +33,7 @@
       <td>
         <a href data-reveal-id="confirm-finish-<%= item.id %>">finish</a>
         <div id="confirm-finish-<%= item.id %>" class="reveal-modal medium" data-reveal>
-          <h3>Finish this item?</a>
+          <h3>Finish this item?</h3>
           <p>This will make the item unavailable for use.</p>
           <div class="row">
             <%= link_to "finish it", item_finish_path(item), method: :post, class: "button large-4 medium-5 columns" %>
