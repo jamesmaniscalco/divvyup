@@ -10,6 +10,7 @@ class Use < ActiveRecord::Base
   validates :group_id, presence: true
   validates_numericality_of :amount, :greater_than => 0
   validates :unit, is_unit_type: true
+  validate :groups_match?
 
   # scopes
   default_scope { order(created_at: :desc) }
@@ -41,6 +42,15 @@ class Use < ActiveRecord::Base
       return amount * 28.35
     elsif unit == 'pound'
       return amount * 453.6
+    end
+  end
+
+  def groups_match?
+    if person.group.id != group.id
+      errors.add(:person, "must be in your group")
+    end
+    if item.group.id != group.id
+      errors.add(:item, "must belong to your group")
     end
   end
 

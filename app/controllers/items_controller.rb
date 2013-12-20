@@ -13,15 +13,13 @@ class ItemsController < LoggedInController
 
   def new
     @item = Item.new
-    @people = current_group.people
-    @item_types = current_group.item_types
+    new_or_create_init
   end
 
   def create
-    @item = Item.create(item_params)
+    @item = Item.new(item_params)
     @item.group = current_group
-    @people = current_group.people
-    @item_types = current_group.item_types
+    new_or_create_init
 
     if @item.save
       redirect_to action: 'index'
@@ -52,6 +50,11 @@ class ItemsController < LoggedInController
     unless @item.group == current_group
       permissions_error_flash
     end
+  end
+
+  def new_or_create_init
+    @people = current_group.people
+    @item_types = current_group.item_types
   end
 
   def item_params

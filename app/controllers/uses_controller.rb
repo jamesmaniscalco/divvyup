@@ -11,13 +11,14 @@ class UsesController < LoggedInController
   end
 
   def create
-    @use = Use.create(use_params)
+    # @use = Use.create(use_params)
+    @use = Use.new(use_params)
     @use.group = current_group
-    new_or_create_init
 
     if @use.save
       redirect_to items_url
     else
+      new_or_create_init
       render 'new'
     end
     
@@ -34,8 +35,8 @@ class UsesController < LoggedInController
   end
 
   def new_or_create_init
-    @people = Person.all
-    @items = Item.available
+    @people = current_group.people
+    @items = current_group.items.available
     if defined?(@use.item) && @use.item != nil
       @units = unit_choices(@use.item.item_type.measure_by)
     else

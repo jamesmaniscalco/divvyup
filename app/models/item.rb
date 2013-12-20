@@ -13,6 +13,7 @@ class Item < ActiveRecord::Base
   validates :item_type_id, presence: true
   validates :group_id, presence: true
   validates :comment, length: { maximum: 100 }
+  validate :groups_match?
 
   # scopes
   default_scope { order(finished: :asc, created_at: :desc) }
@@ -56,6 +57,15 @@ class Item < ActiveRecord::Base
     end
 
     return usage
+  end
+
+  def groups_match?
+    if person.group.id != group.id
+      errors.add(:person, "must be in your group")
+    end
+    if item_type.group.id != group.id
+      errors.add(:item_type, "must belong to your group")
+    end
   end
 
 end
