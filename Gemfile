@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Let's use Foundation for pretty things
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.0.3.1'
 
 # and D3 for nice graphs
 gem 'd3_rails'
