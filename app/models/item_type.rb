@@ -29,7 +29,7 @@ class ItemType < ActiveRecord::Base
 
     # give a nice value if nothing was used yet
     if usage.length == 0
-      usage = [{'person_name' => 'not used yet', 'amount_used' => 0, 'unit' => unit}]
+      usage = [{'person_name' => 'not used yet', 'amount_used' => 0, 'unit' => measure_by}]
     end
 
     return usage
@@ -52,12 +52,22 @@ class ItemType < ActiveRecord::Base
   end
 
   # and find out who should buy the next one!
-  def next_buyer
+  def next_buyers(group)
     users = {}
-    Person.all.each do |person|
+    Person.where(group: group).each do |person|
       users[person.id] = person.buyer_score(self)
     end
 
-    buyer = Person.find(users.sort_by{ |id, score| score }.last[0])
+    # buyer = Person.find(users.sort_by{ |id, score| score }.last[0])
+
+    potential_buyer = users.sort_by{ |id, score| score }.last
+    buyer_ids = []
+    for user in users
+      if user[1] == potential_buyer[1]
+        buyer_ids.append(user[0])
+      end
+    end
+    buyers = Person.find(buyer_ids)
+
   end
 end

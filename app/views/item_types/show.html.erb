@@ -4,8 +4,12 @@
 
 
 <h4>Sharing statistics</h4>
-<% buyer = @item_type.next_buyer %>
-<h5><%= link_to buyer.name, person_path(buyer) %> should buy this next</h5>
+
+<%# buyer = @item_type.next_buyer(current_group) %>
+<% buyers = @item_type.next_buyers(current_group) %>
+
+<h5><%= buyers.map{ |b| link_to(b.name, person_path(b)) }.to_sentence(last_word_connector: ', or ', two_words_connector: ' or ').html_safe %> should buy this next</h5>
+
 <%= render 'share_ratio_table', :item_type => @item_type, :people => @people %>
 
 
